@@ -1,0 +1,23 @@
+package com.bahadir.awsimageupload.config;
+
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.finspacedata.model.AwsCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AmazonConfig {
+
+    public AmazonS3 S3(){
+        AWSCredentials awsCredentials = new BasicAWSCredentials("AKIA3533X25ZZWIW5VGQ", "6koeYf1siA6U+CqpUsG28pnxKdAGSvc4h/lLlCmV");
+
+        return AmazonS3ClientBuilder
+                .standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .build();
+    }
+
+}
